@@ -24,7 +24,7 @@ function get_template_A_base_str(user_info)
   str += '<p><strong><span style="font-size:12.25px">FORRESTER</span></strong><br/>';
   str += '<span style="font:10px Arial, Verdana, sans-serif;color: #3BB982;">BOLD AT WORK</span></p>';
   str += '<p><strong>' + user_info.name + '</strong><br/>';
-  str += user_info.title + (is_valid_data(user_info.phone) ? ' | Office landline: ' + user_info.phone : '') + ' | <a href="' + user_info.email + '">' + user_info.email + '</a><br/>';
+  str += user_info.job_title + (is_valid_data(user_info.phone) ? ' | Office landline: ' + user_info.phone : '') + ' | <a href="' + user_info.email + '">' + user_info.email + '</a><br/>';
   str += (is_valid_data(user_info.blog_link) ? '<a href="' + user_info.blog_link + '">My blog</a> | ' : '') + (is_valid_data(user_info.linkedin_link) ? '<a href="' + user_info.linkedin_link + '">LinkedIn profile</a>' : '') + (is_valid_data(user_info.follow_research_link) ? ' | <a href="' + user_info.follow_research_link + '">Follow my latest research</a><br/>' : '');
   str += '<br/>';
   str += '<strong>Forrester Research, Inc.</strong><br/>';
