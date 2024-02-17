@@ -229,27 +229,27 @@ function is_valid_data(str) {
  * @returns The quote text with quotation marks escaped for HTML
  */
 function get_random_quote(user_info) {
-  return (Math.random() < .5 ? get_random_nerdy_quote() : get_random_philosophical_quote()).replace('"', '&quot;').replace('\'', '&apos;');
+  return (Math.random() < .5 ? get_random_group_1_quote() : get_random_group_2_quote()).replace('"', '&quot;').replace('\'', '&apos;');
 }
 
 /**
- * Gets a nerdy quote to embed in the signature
+ * Gets a group-1 quote to embed in the signature
  * @param {*} user_info Information details about the user
- * @returns The nerdy quote text without quotation marks escaped for HTML
+ * @returns The group-1 quote text without quotation marks escaped for HTML
  */
-function get_random_nerdy_quote(user_info) {
-  var nerdyQuotes = user_info.nerdy_quotes.split('\n');
-  return nerdyQuotes[Math.floor(Math.random() * philosophicalQuotes.length)];
+function get_random_group_1_quote(user_info) {
+  var group1Quotes = user_info.group_1_quotes.split('\n');
+  return group1Quotes[Math.floor(Math.random() * group2Quotes.length)];
 }
 
 /**
- * Gets a philosophical quote to embed in the signature
+ * Gets a group-2 quote to embed in the signature
  * @param {*} user_info Information details about the user
- * @returns The philosophical quote text without quotation marks escaped for HTML
+ * @returns The group 2 quote text without quotation marks escaped for HTML
  */
-function get_random_philosophical_quote(user_info) {
-  var philosophicalQuotes = user_info.philosophical_quotes.split('\n');
-  return philosophicalQuotes[Math.floor(Math.random() * philosophicalQuotes.length)];
+function get_random_group_2_quote(user_info) {
+  var group2Quotes = user_info.group_2_quotes.split('\n');
+  return group2Quotes[Math.floor(Math.random() * group2Quotes.length)];
 }
 
 Office.actions.associate("checkSignature", checkSignature);
