@@ -98,7 +98,7 @@ function is_not_valid_email_address(email_address)
   return is_not_valid_text(email_address) || !(email_address_regex.test(email_address));
 }
 
-function form_has_valid_data(name, email)
+function form_has_valid_data(name, email, job_title)
 {
   if (is_not_valid_text(name))
   {
@@ -109,6 +109,12 @@ function form_has_valid_data(name, email)
   if (is_not_valid_email_address(email))
   {
     display_message("Please enter a valid email address.");
+    return false;
+  }
+
+  if (is_not_valid_text(job_title))
+  {
+    display_message("Please enter a valid job title.");
     return false;
   }
 
@@ -124,10 +130,11 @@ function create_user_info()
 {
   let name = _display_name.val().trim();
   let email = _email_id.val().trim();
+  let job_title = _job_title.val().trim();
 
   clear_message();
 
-  if (form_has_valid_data(name, email))
+  if (form_has_valid_data(name, email, job_title))
   {
     clear_message();
 
@@ -135,7 +142,7 @@ function create_user_info()
 
     user_info.name = name;
     user_info.email = email;
-    user_info.job_title = _job_title.val().trim();
+    user_info.job_title = job_title;
     user_info.phone = _phone_number.val().trim();
     user_info.blog_link = _blog_link.val().trim();
     user_info.linkedin_link = _linkedin_link.val().trim();
