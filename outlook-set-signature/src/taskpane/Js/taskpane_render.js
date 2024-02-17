@@ -10,8 +10,10 @@ let _phone_number;
 let _email_id;
 let _blog_link;
 let _linkedin_link;
-let _follow_reseach_link;
+let _follow_research_link;
 let _greeting_text;
+let _group_1_quotes;
+let _group_2_quotes;
 let _message;
 
 Office.initialize = function(reason)
@@ -32,8 +34,10 @@ function on_initialization_complete()
       _phone_number = $("input#phone_number");
       _blog_link = $("input#blog_link");
       _linkedin_link = $("input#linkedin_link");
-      _follow_reseach_link = $("input#follow_reseach_link");
+      _follow_research_link = $("input#follow_research_link");
       _greeting_text = $("input#greeting_text");
+      _group_1_quotes = $("input#group_1_quotes");
+      _group_2_quotes = $("input#group_2_quotes");
       _message = $("p#message");
 
       prepopulate_from_userprofile();
@@ -66,7 +70,9 @@ function load_saved_user_info()
     _phone_number.val(user_info.phone);
     _blog_link.val(user_info.blog_link);
     _linkedin_link.val(user_info.linkedin_link);
-    _follow_reseach_link.val(user_info.follow_reseach_link);
+    _follow_research_link.val(user_info.follow_research_link);
+    _group_1_quotes.val(user_info.group_1_quotes);
+    _group_2_quotes.val(user_info.group_2_quotes);
     _greeting_text.val(user_info.greeting);
   }
 }
@@ -133,7 +139,9 @@ function create_user_info()
     user_info.phone = _phone_number.val().trim();
     user_info.blog_link = _blog_link.val().trim();
     user_info.linkedin_link = _linkedin_link.val().trim();
-    user_info.follow_reseach_link = _follow_reseach_link.val().trim();
+    user_info.follow_research_link = _follow_research_link.val().trim();
+    user_info.group_1_quotes = _group_1_quotes.val().trim();
+    user_info.group_2_quotes = _group_2_quotes.val().trim();
     user_info.greeting = _greeting_text.val().trim();
 
     console.log(user_info);
@@ -150,7 +158,9 @@ function clear_all_fields()
   _phone_number.val("");
   _blog_link.val("");
   _linkedin_link.val("");
-  _follow_reseach_link.val("");
+  _follow_research_link.val("");
+  _group_1_quotes.val("");
+  _group_2_quotes.val("");
   _greeting_text.val("");
 }
 
