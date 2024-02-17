@@ -169,20 +169,8 @@ function get_command_id() {
  */
 function get_template_A_info(user_info) {
   let str = "";
-  str += "<p class='MsoNormal'><o:p>&nbsp;</o:p></p>";
-  str += "<p class='MsoNormal' style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:8.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<o:p></o:p></span></p>";
-  str += "<p class='MsoNormal' style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><b><span style='font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'>FORRESTER</span></b><span style='font-size:8.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'><br>";
-  str += "</span><span style='font-size:7.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#3BB982;mso-ligatures:none'>BOLD AT WORK</span><span style='font-size:8.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'><o:p></o:p></span></p>";
-  str += "<p class='MsoNormal' style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><b><span style='font-size:8.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'>" + user_info.name + "</span></b><span style='font-size:8.5pt;font-family:&quot;Arial&quot;,sans-serif;color:#333333;mso-ligatures:none'><br>";
-  str += user_info.job + "&nbsp|&nbsp" + (is_valid_data(user_info.phone) ? "Office landline: " + user_info.phone + "&nbsp|&nbsp;" : "") + "<a href='mailto:" + user_info.email + "'><span style='color:blue'>" + user_info.email + "</span></a><br>";
-  str += (is_valid_data(user_info.blog_link) ? "<a href='" + user_info.blog_link + "'><span style='color:blue'>My blog</span></a>&nbsp;|&nbsp;" : "") + (is_valid_data(user_info.linkedin_link) ? "<a href='"+user_info.linkedin_link+"'><span style='color:blue'>LinkedIn profile</span></a>&nbsp;|&nbsp;" : "" ) + "<a href='"+user_info.follow_reseach_link+"'><span style='color:blue'>Follow my latest research</span></a><br />";
-  str += "<br>"
-  str += "<b>Forrester Research, Inc.</b><br>"
-  str += "60 Acorn Park Drive, Cambridge, MA 02140 United States<br>"
-  str += "<a href='http://www.forrester.com/'><span style='color:blue'>Forrester.com</span></a>&nbsp;|&nbsp;<a href='http://blogs.forrester.com/'><span style='color:blue'>Blogs</span></a>&nbsp;|&nbsp;<a href='http://forr.com/what-it-means'><span style='color:blue'>Podcasts</span></a>&nbsp;|&nbsp;<a href='http://twitter.com/forrester'><span style='color:blue'>X</span></a>&nbsp;|&nbsp;<a href='http://linkedin.com/company/forrester-research'><span style='color:blue'>LinkedIn</span></a>&nbsp;|&nbsp;<a href='http://www.youtube.com/user/forresterresearch'><span style='color:blue'>YouTube</span></a>&nbsp;|&nbsp;<a href='https://www.instagram.com/forrester_global/'><span style='color:blue'>Instagram</span></a><o:p></o:p></span></p>"
-  str += "<p class='MsoNormal'><span style='font-size:7.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-ligatures:none'><o:p>&nbsp;</o:p></span></p>"
-  str += "<p class='MsoNormal'><span style='font-size:7.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-ligatures:none'>" + get_random_quote(user_info) + "<o:p></o:p></span></p>"
-  str += "<p class='MsoNormal'><o:p>&nbsp;</o:p></p>"
+  str += get_template_A_base_str(user_info);
+  str += '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">INSERT QUOTE HERE</span></p>';
 
   return {
     signature: str,
@@ -205,7 +193,7 @@ function get_template_B_info(user_info) {
     str += user_info.greeting + "<br/>";
   }
 
-  str += user_info.name;
+  str += get_template_B_base_str(user_info);
 
   return {
     signature: str,

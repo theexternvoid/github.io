@@ -12,19 +12,8 @@ function get_template_A_str(user_info)
     str += user_info.greeting + "<br/>";
   }
 
-  str += "<table>";
-  str +=   "<tr>";
-  str +=     "<td style='border-right: 1px solid #000000; padding-right: 5px;'><img src='https://officedev.github.io/Office-Add-in-samples/Samples/outlook-set-signature/assets/sample-logo.png' alt='Logo' /></td>";
-  str +=     "<td style='padding-left: 5px;'>";
-  str +=	   "<strong>" + user_info.name + "</strong>";
-  str +=     is_valid_data(user_info.pronoun) ? "&nbsp;" + user_info.pronoun : "";
-  str +=     "<br/>";
-  str +=	   is_valid_data(user_info.job) ? user_info.job + "<br/>" : "";
-  str +=	   user_info.email + "<br/>";
-  str +=	   is_valid_data(user_info.phone) ? user_info.phone + "<br/>" : "";
-  str +=     "</td>";
-  str +=   "</tr>";
-  str += "</table>";
+  str += get_template_A_base_str(user_info);
+  str += (has_quotes(user_info) ? '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + get_random_quote(user_info) + '</span></p>' : '')
 
   return str;
 }
@@ -37,7 +26,11 @@ function get_template_B_str(user_info)
     str += user_info.greeting + "<br/>";
   }
 
-  str += user_info.name;
+  str += get_template_B_base_str(user_info);
   
   return str;
+}
+
+function has_quotes(user_info) {
+  return user_info.group_1_quotes.split('\n').length > 0 || user_info.group_2_quotes.split('\n').length > 0;
 }

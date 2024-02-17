@@ -62,7 +62,7 @@ function load_saved_user_info()
 
     _display_name.val(user_info.name);
     _email_id.val(user_info.email);
-    _job_title.val(user_info.job);
+    _job_title.val(user_info.job_title);
     _phone_number.val(user_info.phone);
     _blog_link.val(user_info.blog_link);
     _linkedin_link.val(user_info.linkedin_link);
@@ -129,7 +129,7 @@ function create_user_info()
 
     user_info.name = name;
     user_info.email = email;
-    user_info.job = _job_title.val().trim();
+    user_info.job_title = _job_title.val().trim();
     user_info.phone = _phone_number.val().trim();
     user_info.blog_link = _blog_link.val().trim();
     user_info.linkedin_link = _linkedin_link.val().trim();
