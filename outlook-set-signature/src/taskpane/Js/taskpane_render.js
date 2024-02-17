@@ -36,8 +36,8 @@ function on_initialization_complete()
       _linkedin_link = $("input#linkedin_link");
       _follow_research_link = $("input#follow_research_link");
       _greeting_text = $("input#greeting_text");
-      _group_1_quotes = $("input#group_1_quotes");
-      _group_2_quotes = $("input#group_2_quotes");
+      _group_1_quotes = $("textarea#group_1_quotes");
+      _group_2_quotes = $("textarea#group_2_quotes");
       _message = $("p#message");
 
       prepopulate_from_userprofile();
