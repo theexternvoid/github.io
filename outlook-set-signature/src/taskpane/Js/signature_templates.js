@@ -13,7 +13,7 @@ function get_template_A_str(user_info)
   }
 
   str += get_template_A_base_str(user_info);
-  str += (has_quotes(user_info) ? '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + get_random_quote(user_info) + '</span></p>' : '')
+  str += (has_quotes(user_info) ? '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">INSERT QUOTE HERE</span></p>' : '')
 
   return str;
 }

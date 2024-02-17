@@ -170,7 +170,7 @@ function get_command_id() {
 function get_template_A_info(user_info) {
   let str = "";
   str += get_template_A_base_str(user_info);
-  str += '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">INSERT QUOTE HERE</span></p>';
+  str += '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + get_random_quote(user_info) + '</span></p>';
 
   return {
     signature: str,

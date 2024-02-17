@@ -147,7 +147,6 @@ function create_user_info()
     user_info.blog_link = _blog_link.val().trim();
     user_info.linkedin_link = _linkedin_link.val().trim();
     user_info.follow_research_link = _follow_research_link.val().trim();
-console.log(_group_1_quotes);
     user_info.group_1_quotes = _group_1_quotes.val().trim();
     user_info.group_2_quotes = _group_2_quotes.val().trim();
     user_info.greeting = _greeting_text.val().trim();
