@@ -81,7 +81,10 @@ function get_random_quote(user_info) {
 }
 
 function get_random_group_1_quote(user_info) {
+console.log(user_info);
+console.log(user_info.group_1_quotes);
   var group1Quotes = user_info.group_1_quotes.split('\n');
+console.log(group1Quotes);
   return group1Quotes[Math.floor(Math.random() * group2Quotes.length)];
 }
 
