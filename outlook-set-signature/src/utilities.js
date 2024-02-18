@@ -86,6 +86,6 @@ function get_random_group_1_quote(user_info) {
 }
 
 function get_random_group_2_quote(user_info) {
-  var group_2_quotes_array = user_info.group_2_quotes_array.split('\n');
+  var group_2_quotes_array = user_info.group_2_quotes.split('\n');
   return group_2_quotes_array[Math.floor(Math.random() * group_2_quotes_array.length)];
 }
