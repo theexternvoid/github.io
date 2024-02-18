@@ -170,7 +170,7 @@ function get_command_id() {
 function get_template_A_info(user_info) {
   let str = "";
 
-  str += get_template_A_signature_str(user_info, get_random_quote(user_info));
+  str += get_template_A_signature(user_info, get_random_quote(user_info));
 
   return {
     signature: str,
@@ -190,7 +190,7 @@ function get_template_A_info(user_info) {
 function get_template_B_info(user_info) {
   let str = "";
 
-  str += get_template_B_signature_str(user_info);
+  str += get_template_B_signature(user_info);
 
   return {
     signature: str,

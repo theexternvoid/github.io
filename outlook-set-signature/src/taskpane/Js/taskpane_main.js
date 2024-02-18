@@ -103,7 +103,7 @@ function insert_signature(str)
 
 function test_template_A()
 {
-	let str = get_template_A_signature_str(_user_info, get_random_quote(_user_info));
+	let str = get_template_A_signature(_user_info, get_random_quote(_user_info));
 	console.log("test_template_A - " + str);
 
 	insert_signature(str);
@@ -111,7 +111,7 @@ function test_template_A()
 
 function test_template_B()
 {
-	let str = get_template_B_signature_str(_user_info);
+	let str = get_template_B_signature(_user_info);
 	console.log("test_template_B - " + str);
 
 	insert_signature(str);
