@@ -30,7 +30,7 @@ function get_template_A_base_str(user_info, quote)
   str += '<strong>Forrester Research, Inc.</strong><br/>';
   str += '60 Acorn Park Drive, Cambridge, MA 02140 United States<br/>';
   str += '<a href="http://www.forrester.com/">Forrester.com</a> | <a href="http://blogs.forrester.com/">Blogs</a> | <a href="http://forr.com/what-it-means">Podcasts</a> | <a href="http://twitter.com/forrester">Twitter</a> | <a href="http://linkedin.com/company/forrester-research">LinkedIn</a> | <a href="http://www.youtube.com/user/forresterresearch">YouTube</a><p>';
-  str += (is_valid_data(quote) ? '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + quote + '</span></p>' : '');
+  str += (is_valid_data(quote) ? '<p><br><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + quote + '</span></p>' : '');
 
   return str;
 }
