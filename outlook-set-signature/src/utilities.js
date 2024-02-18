@@ -81,6 +81,7 @@ function get_random_quote(user_info) {
 }
 
 function get_random_group_1_quote(user_info) {
+console.log('get_random_group_1_quote');
 console.log(user_info);
 console.log(user_info.group_1_quotes);
   var group1Quotes = user_info.group_1_quotes.split('\n');

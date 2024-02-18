@@ -29,6 +29,11 @@ function save_signature_settings()
 
   if (user_info_str)
   {
+	if (!_user_info)
+	{
+	  _user_info = JSON.parse(user_info_str); 
+	}
+
 	Office.context.roamingSettings.set('user_info', user_info_str);
 	Office.context.roamingSettings.set('newMail', $("#new_mail option:selected").val());
 	Office.context.roamingSettings.set('reply', $("#reply option:selected").val());
@@ -98,8 +103,9 @@ function insert_signature(str)
 
 function test_template_A()
 {
-	let user_info = JSON.parse(localStorage.getItem('user_info'));
-	let str = get_template_A_signature(user_info, get_random_quote(user_info));
+console.log('test_template_A');
+console.log(_user_info);
+	let str = get_template_A_signature(_user_info, get_random_quote(_user_info));
 	console.log("test_template_A - " + str);
 
 	insert_signature(str);
@@ -107,7 +113,7 @@ function test_template_A()
 
 function test_template_B()
 {
-	let str = get_template_B_signature(user_info);
+	let str = get_template_B_signature(_user_info);
 	console.log("test_template_B - " + str);
 
 	insert_signature(str);
