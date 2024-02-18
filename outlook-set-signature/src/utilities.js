@@ -81,11 +81,11 @@ function get_random_quote(user_info) {
 }
 
 function get_random_group_1_quote(user_info) {
-  var group1Quotes = user_info.group_1_quotes.split('\n');
-  return group1Quotes[Math.floor(Math.random() * group2Quotes.length)];
+  var group_1_quotes_array = user_info.group_1_quotes.split('\n');
+  return group_1_quotes_array[Math.floor(Math.random() * group_1_quotes_array.length)];
 }
 
 function get_random_group_2_quote(user_info) {
-  var group2Quotes = user_info.group_2_quotes.split('\n');
-  return group2Quotes[Math.floor(Math.random() * group2Quotes.length)];
+  var group_2_quotes_array = user_info.group_2_quotes_array.split('\n');
+  return group_2_quotes_array[Math.floor(Math.random() * group_2_quotes_array.length)];
 }

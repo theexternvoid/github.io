@@ -199,33 +199,4 @@ function get_template_B_info(user_info) {
   };
 }
 
-/**
- * Validates if str parameter contains text.
- * @param {*} str String to validate
- * @returns true if string is valid; otherwise, false.
- */
-function is_valid_data(str) {
-  return str !== null && str !== undefined && str !== "";
-}
-
-/**
- * Gets a group-1 quote to embed in the signature
- * @param {*} user_info Information details about the user
- * @returns The group-1 quote text without quotation marks escaped for HTML
- */
-function get_random_group_1_quote(user_info) {
-  var group1Quotes = user_info.group_1_quotes.split('\n');
-  return group1Quotes[Math.floor(Math.random() * group2Quotes.length)];
-}
-
-/**
- * Gets a group-2 quote to embed in the signature
- * @param {*} user_info Information details about the user
- * @returns The group 2 quote text without quotation marks escaped for HTML
- */
-function get_random_group_2_quote(user_info) {
-  var group2Quotes = user_info.group_2_quotes.split('\n');
-  return group2Quotes[Math.floor(Math.random() * group2Quotes.length)];
-}
-
 Office.actions.associate("checkSignature", checkSignature);

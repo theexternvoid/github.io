@@ -103,8 +103,6 @@ function insert_signature(str)
 
 function test_template_A()
 {
-console.log('test_template_A');
-console.log(_user_info);
 	let str = get_template_A_signature(_user_info, get_random_quote(_user_info));
 	console.log("test_template_A - " + str);
 
