@@ -19,7 +19,7 @@ function get_cal_offset()
 function get_template_A_base_str(user_info, quote)
 {
   let str = "";
-  str += '<div style="font:11px Arial, Verdana, sans-serif;color:#333">';
+  str += '<div style="font:11px Arial, Verdana, sans-serif;color:#333"><br>';
   str += ':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br>';
   str += '<br>';
   str += '<strong><span style="font-size:12.25px">FORRESTER</span></strong><br/>';
@@ -40,10 +40,6 @@ function get_template_A_base_str(user_info, quote)
 function get_template_B_base_str(user_info)
 {
   let str = "";
-  if (is_valid_data(user_info.greeting)) {
-    str += user_info.greeting + "<br/>";
-  }
-
   str += '–' + user_info.name;
 
   return str;

@@ -147,9 +147,9 @@ function create_user_info()
     user_info.blog_link = _blog_link.val().trim();
     user_info.linkedin_link = _linkedin_link.val().trim();
     user_info.follow_research_link = _follow_research_link.val().trim();
+    user_info.greeting = _greeting_text.val().trim();
     user_info.group_1_quotes = _group_1_quotes.val().trim();
     user_info.group_2_quotes = _group_2_quotes.val().trim();
-    user_info.greeting = _greeting_text.val().trim();
 
     console.log(user_info);
     localStorage.setItem('user_info', JSON.stringify(user_info));
@@ -166,9 +166,9 @@ function clear_all_fields()
   _blog_link.val("");
   _linkedin_link.val("");
   _follow_research_link.val("");
+  _greeting_text.val("");
   _group_1_quotes.val("");
   _group_2_quotes.val("");
-  _greeting_text.val("");
 }
 
 function clear_all_localstorage_data()
