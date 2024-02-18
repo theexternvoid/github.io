@@ -14,36 +14,33 @@
  * @returns
  */
 function checkSignature(eventObj) {
+  display_insight_infobar();
   let user_info_str = Office.context.roamingSettings.get("user_info");
-  if (!user_info_str) {
-    display_insight_infobar();
-  } else {
-    let user_info = JSON.parse(user_info_str);
+  let user_info = JSON.parse(user_info_str);
 
-    if (Office.context.mailbox.item.getComposeTypeAsync) {
-      //Find out if the compose type is "newEmail", "reply", or "forward" so that we can apply the correct template.
-      Office.context.mailbox.item.getComposeTypeAsync(
-        {
-          asyncContext: {
-            user_info: user_info,
-            eventObj: eventObj,
-          },
+  if (Office.context.mailbox.item.getComposeTypeAsync) {
+    //Find out if the compose type is "newEmail", "reply", or "forward" so that we can apply the correct template.
+    Office.context.mailbox.item.getComposeTypeAsync(
+      {
+        asyncContext: {
+          user_info: user_info,
+          eventObj: eventObj,
         },
-        function (asyncResult) {
-          if (asyncResult.status === "succeeded") {
-            insert_auto_signature(
-              asyncResult.value.composeType,
-              asyncResult.asyncContext.user_info,
-              asyncResult.asyncContext.eventObj
-            );
-          }
+      },
+      function (asyncResult) {
+        if (asyncResult.status === "succeeded") {
+          insert_auto_signature(
+            asyncResult.value.composeType,
+            asyncResult.asyncContext.user_info,
+            asyncResult.asyncContext.eventObj
+          );
         }
-      );
-    } else {
-      // Appointment item. Just use newMail pattern
-      let user_info = JSON.parse(user_info_str);
-      insert_auto_signature("newMail", user_info, eventObj);
-    }
+      }
+    );
+  } else {
+    // Appointment item. Just use newMail pattern
+    let user_info = JSON.parse(user_info_str);
+    insert_auto_signature("newMail", user_info, eventObj);
   }
 }
 
@@ -113,7 +110,7 @@ function addTemplateSignature(signatureDetails, eventObj, signatureImageBase64) 
 function display_insight_infobar() {
   Office.context.mailbox.item.notificationMessages.addAsync("fd90eb33431b46f58a68720c36154b4a", {
     type: "insightMessage",
-    message: "Please set your signature with the Office Add-ins sample.",
+    message: "Please set your signature with the unofficial Forrester signature add-in.",
     icon: "Icon.16x16",
     actions: [
       {
