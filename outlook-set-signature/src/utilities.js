@@ -16,7 +16,7 @@ function get_cal_offset()
   return "<br/><br/>";
 }
 
-function get_template_A_base_str(user_info)
+function get_template_A_base_str(user_info, quote)
 {
   let str = "";
   str += '<div style="font:11px Arial, Verdana, sans-serif;color:#333">';
@@ -30,6 +30,7 @@ function get_template_A_base_str(user_info)
   str += '<strong>Forrester Research, Inc.</strong><br/>';
   str += '60 Acorn Park Drive, Cambridge, MA 02140 United States<br/>';
   str += '<a href="http://www.forrester.com/">Forrester.com</a> | <a href="http://blogs.forrester.com/">Blogs</a> | <a href="http://forr.com/what-it-means">Podcasts</a> | <a href="http://twitter.com/forrester">Twitter</a> | <a href="http://linkedin.com/company/forrester-research">LinkedIn</a> | <a href="http://www.youtube.com/user/forresterresearch">YouTube</a><p>';
+  str += (is_valid_data(quote) ? '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + quote + '</span></p>' : '');
 
   return str;
 }
@@ -37,7 +38,54 @@ function get_template_A_base_str(user_info)
 function get_template_B_base_str(user_info)
 {
   let str = "";
-  str += user_info.name;
+  if (is_valid_data(user_info.greeting)) {
+    str += user_info.greeting + "<br/>";
+  }
+
+  str += '–' + user_info.name;
 
   return str;
+}
+
+function get_greeting(user_info)
+{
+  let str = "";
+  if (is_valid_data(user_info.greeting)) {
+    str += user_info.greeting + "<br/>";
+  }
+  
+  return str;
+}
+
+function get_template_A_signature(user_info, quote)
+{
+  let str = get_greeting(user_info);
+  str += get_template_A_base_str(user_info, quote);
+  
+  return str;
+}
+
+function get_template_B_signature(user_info, quote)
+{
+  let str = get_greeting(user_info);
+  str += get_template_B_base_str(user_info, quote);
+  
+  return str;
+}
+
+function get_random_quote(user_info) {
+  let group_1_quote = get_random_group_1_quote();
+  let group_2_quote = get_random_group_2_quote();
+  
+  return (Math.random() < .5 && is_valid_data(group_1_quote) ? group_1_quote : is_valid_data(group_2_quote) ? group_2_quote : '').replace('"', '&quot;').replace('\'', '&apos;');
+}
+
+function get_random_group_1_quote(user_info) {
+  var group1Quotes = user_info.group_1_quotes.split('\n');
+  return group1Quotes[Math.floor(Math.random() * group2Quotes.length)];
+}
+
+function get_random_group_2_quote(user_info) {
+  var group2Quotes = user_info.group_2_quotes.split('\n');
+  return group2Quotes[Math.floor(Math.random() * group2Quotes.length)];
 }

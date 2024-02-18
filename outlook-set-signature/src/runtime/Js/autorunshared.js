@@ -169,8 +169,8 @@ function get_command_id() {
  */
 function get_template_A_info(user_info) {
   let str = "";
-  str += get_template_A_base_str(user_info);
-  str += '<p><span style="font-size:7.0pt;font-family:Arial,sans-serif">' + get_random_quote(user_info) + '</span></p>';
+
+  str += get_template_A_signature_str(user_info, get_random_quote(user_info));
 
   return {
     signature: str,
@@ -189,11 +189,8 @@ function get_template_A_info(user_info) {
  */
 function get_template_B_info(user_info) {
   let str = "";
-  if (is_valid_data(user_info.greeting)) {
-    str += user_info.greeting + "<br/>";
-  }
 
-  str += get_template_B_base_str(user_info);
+  str += get_template_B_signature_str(user_info);
 
   return {
     signature: str,
@@ -209,15 +206,6 @@ function get_template_B_info(user_info) {
  */
 function is_valid_data(str) {
   return str !== null && str !== undefined && str !== "";
-}
-
-/**
- * Gets a quote to embed in the signature
- * @param {*} user_info Information details about the user
- * @returns The quote text with quotation marks escaped for HTML
- */
-function get_random_quote(user_info) {
-  return (Math.random() < .5 ? get_random_group_1_quote() : get_random_group_2_quote()).replace('"', '&quot;').replace('\'', '&apos;');
 }
 
 /**

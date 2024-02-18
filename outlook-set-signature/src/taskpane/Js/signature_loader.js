@@ -50,13 +50,13 @@ function populate_templates()
 
 function populate_template_A()
 {
-  let str = get_template_A_str(_user_info);
+  let str = get_template_A_base_str(_user_info, "INSERT QUOTE HERE");
   $("#box_1").html(str);
 }
 
 function populate_template_B()
 {
-  let str = get_template_B_str(_user_info);
+  let str = get_template_B_base_str(_user_info);
   $("#box_2").html(str);
 }
 
